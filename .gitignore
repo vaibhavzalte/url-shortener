@@ -1,0 +1,16 @@
+# Ignore node modules
+Backend/node_modules
+Frontend/node_modules
+# Ignore environment files
+.env
+
+# Ignore build directory
+/build
+
+# Ignore log files
+*.log
+
+goal.txt
+
+
+

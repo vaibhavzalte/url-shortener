@@ -1,9 +1,14 @@
 import { nanoid } from "nanoid";
 import URL from "../models/url.js"
 
+export  async function handleGetAll(req,res){
+    const entries= await URL.find({});
+    return res.json(entries);
+}
 
 export async function handleGenerateNewShortUrl(req,res){
     const body=req.body;
+    console.log(body);
     if(!body.url) return res.status(400).json({error:'url is required'});
     const shortId=nanoid(8);
 
@@ -12,6 +17,7 @@ export async function handleGenerateNewShortUrl(req,res){
         redirectUrl:body.url,
         visitHistory:[],
     })
+    
     return res.json({id:shortId});
 }
 
